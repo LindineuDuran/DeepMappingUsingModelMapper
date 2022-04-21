@@ -1,0 +1,5 @@
+// Creating a Custom Network to Connect MySQL and WebApplication
+docker network create mysqlNET
+
+// Baixar imagem do MySQL
+docker run --detach --restart=always --env MYSQL_ROOT_PASSWORD=dummypassword --env MYSQL_USER=todos-user --env MYSQL_PASSWORD=dummytodos --env MYSQL_DATABASE=deep-mapping --name mysql --publish 3306:3306 --network=mysqlNET --volume mysql-database-volume:/var/lib/mysql mysql:5.7
